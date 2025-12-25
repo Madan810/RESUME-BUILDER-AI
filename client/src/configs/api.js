@@ -1,9 +1,12 @@
 import axios from "axios";
 
-console.log("API Base URL:", import.meta.env.VITE_BASE_URL || "/api");
+const isProduction = import.meta.env.PROD;
+const baseURL = isProduction ? "/api" : (import.meta.env.VITE_BASE_URL || "/api");
+
+console.log("API Base URL:", baseURL);
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL || "/api",
+  baseURL: baseURL,
 });
 
 api.interceptors.request.use(
