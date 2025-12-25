@@ -44,11 +44,11 @@ const Login = () => {
     e.preventDefault();
     try {
       if (resetStep === 1) {
-        const { data } = await api.post("/api/users/forgot-password", { email: resetData.email });
+        const { data } = await api.post("/users/forgot-password", { email: resetData.email });
         toast.success(data.message);
         setResetStep(2);
       } else {
-        const { data } = await api.post("/api/users/reset-password", {
+        const { data } = await api.post("/users/reset-password", {
           token: resetData.token,
           newPassword: resetData.newPassword
         });
@@ -73,7 +73,7 @@ const Login = () => {
           ? { email: formData.email, password: formData.password }
           : formData;
 
-      const { data } = await api.post(`/api/users/${state}`, payload);
+      const { data } = await api.post(`/users/${state}`, payload);
 
       dispatch(login(data));
       localStorage.setItem("token", data.token);

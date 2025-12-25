@@ -38,7 +38,7 @@ const ExperienceForm = ({ data = [], onChange }) => {
 
     setLoading(true);
     try {
-      const { data: resData } = await api.post("/api/ai/enhance-job-desc", {
+      const { data: resData } = await api.post("/ai/enhance-job-desc", {
         userContent: experience.description,
       });
       updatedExperience(index, "description", resData.enhancedContent);

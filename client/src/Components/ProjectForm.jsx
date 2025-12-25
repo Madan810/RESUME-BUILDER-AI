@@ -36,7 +36,7 @@ const ProjectForm = ({ data = [], onChange }) => {
 
     setLoading(true);
     try {
-      const { data: resData } = await api.post("/api/ai/enhance-job-desc", {
+      const { data: resData } = await api.post("/ai/enhance-job-desc", {
         userContent: project.description,
       });
       // Assuming we can use the job-desc endpoint for projects too, as it's just text enhancement

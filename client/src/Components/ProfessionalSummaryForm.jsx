@@ -14,7 +14,7 @@ const ProfessionalSummaryForm = ({ data, onChange, setResumeData }) => {
 
     setLoading(true)
     try {
-      const { data: resData } = await api.post("/api/ai/enhance-pro-sum", {
+      const { data: resData } = await api.post("/ai/enhance-pro-sum", {
         userContent: data,
       })
       onChange(resData.enhancedContent)
